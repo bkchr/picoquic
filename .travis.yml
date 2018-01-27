@@ -1,0 +1,15 @@
+sudo: true
+language: c
+
+addons:
+  apt:
+    packages:
+    - cmake
+    - git
+    - openssl
+
+before_script:
+- "mkdir .picoquic && mv * .picoquic && git clone https://github.com/h2o/picotls.git && cd picotls && git submodule update --init && cmake . && make"
+
+script:
+- "cd ../.picoquic && cmake . && make && ./picoquic_ct"
