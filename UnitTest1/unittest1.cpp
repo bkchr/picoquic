@@ -597,5 +597,12 @@ namespace UnitTest1
 
             Assert::AreEqual(ret, 0);
         }
+
+        TEST_METHOD(send_and_receive_reset)
+        {
+            int ret = send_and_receive_reset_test();
+
+            Assert::AreEqual(ret, 0);
+        }
     };
 }
